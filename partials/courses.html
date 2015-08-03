@@ -1,23 +1,20 @@
 <div ng-show="courses.length">
-  <h1>Here are all of your courses</h1>
+  <h1>Here are all of your courses:</h1>
   <ul>
-    <li mg-repeat="item in courses">
-      <a href="ui-sref="courses.students({ courseId: item.if })">{{ item.name }}"></a>
+    <li ng-repeat="item in courses">
+      <a ui-sref="courses.students({ courseId: item.id })">{{ item.name }}</a>
     </li>
   </ul>
 </div>
 
 <div class="col-md-4">
   <h3>Add a new course</h3>
-  <form class="form-inline" role="form" ng-submit="CoursesFactory.addCourse()">
+  <form ng-submit="CoursesFactory.addCourse()" class="form-inline" role="form">
     <div class="form-group">
-      <label for="courseName">Enter the course name</label>
-      <input type="text" mg-model="CourseFactory.courseName" class="form-control">
+      <input type="text" ng-model="CoursesFactory.courseName" class="form-control" placeholder="Enter a course name">
     </div>
     <button type="submit" class="btn btn-default">Submit</button>
   </form>
 </div>
 
-<div ui-view>
-
-</div>
+<div ui-view> </div>
